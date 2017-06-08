@@ -1,52 +1,21 @@
 AngularJS Emoji Picker
 ======================
 
-[![Code Climate](https://codeclimate.com/github/terranisu/angular-emoji-picker/badges/gpa.svg)](https://codeclimate.com/github/terranisu/angular-emoji-picker)
-
-AngularJS Emoji Picker is a simple AngularJs module which allows you to add emoji images to your model value. This project is heavily inspired by
-[Angular Emoji](https://github.com/Coraza/angular-emoji-popup/), but it doesn't require external dependencies like JQuery, JQuery plugins and so forth.
-
-Installation
-------------
-
-### Bower
-The simplest way to install Emoji Picker is use npm
-
-```bash
-npm install angular-emoji-picker --save
-```
-
-This will install the latest release.
-
-### Manual
-You can also just download the contents of the `dist/` folder and add dependencies manually.
-
-Usage
------
-```javascript
-import 'angular-emoji-picker'
-
-angular.module('myModule', ['vkEmojiPicker']);
-```
-By default Emoji Picker uses its own popover, which, to be honest, has not a very great realization. But you have an option - you can use
-external dependencies: [Angular Strap](https://github.com/mgcrea/angular-strap), [Angular-UI Bootstrap](https://github.com/angular-ui/bootstrap)
-and [Bootstrap](https://github.com/twbs/bootstrap). In that case you have to include additional scripts on your page:
+AngularJS Emoji Picker is a simple AngularJs module which allows you to add emoji images to your model value.
 
 ### Emoji Picker Directive
-Add the `emoji-picker` attribute to an element to drop in the emoji button and picker in your template. Clicking the element will open a popover listing the available emoji for a user to select.
+Add the `emoji-picker` attribute to an element to drop in to your template. The element will insert a list of available emoji for a user to select.
 
 #### Basic Example:
 ```
 <input type="text" ng-model="keyword"/>
-<span emoji-picker="keyword" placement="right" title="Emoji"></span>
+<span emoji-picker="keyword"></span>
 ```
 
 #### Full Example
 ```
 <textarea ng-model="message" ng-change="messageUpdated()">{{message}}</textarea>
 <span emoji-picker="message"
-      placement="right" 
-      title="Emoji"
       recent-limit="10"
       output-format="unicode"
       on-change-func="messageUpdated"></span>
@@ -54,11 +23,6 @@ Add the `emoji-picker` attribute to an element to drop in the emoji button and p
 
 #### Options:
 * **emoji-picker** - the bound property to which selected emoji should be added
-
-* **placement** (optional) - determines where the popover shows relative to the button element
-   
-  `top (default), bottom, left, right, right-relative`
-* **title** (optional) - the header text shown in the popover window
 
 * **recent-limit** (optional) - the number of recently-selected emoji to show in the popover window
 
@@ -112,30 +76,8 @@ Also Emoji Picker provides a couple handy directives:
 
 ## Known issues and limitations
 
-1. The picker requires AngularJS 1.3 as a minimal dependency. Didn't test on 1.4 versions, probably it's broken.
-2. Angular-UI-Bootstrap is supported partially.
-You have to use version >=0.13, which has not been released yet. To get the `master` branch with bower, run: 
-```
-$ bower install angular-ui-bootstrap#master
-```
-and then include only required files to your project.
+1. The picker requires AngularJS 1.3 as a minimal dependency and up to latest 1.x.
 
-### Bugs and feature requests
-If you found a bug or have an idea feel free [to open a new issue](https://github.com/terranisu/angular-emoji-picker/issues/new).
-
-Contributing
-------------
-Any contribution is highly appreciated especially to fix all my grammar mistakes :)
-
-1. Fork it ( https://github.com/terranisu/angular-emoji-picker/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Create a feature and add tests if required
-4. Commit your changes (`git commit -am 'Add some feature'`)
-5. Push to the branch (`git push origin my-new-feature`)
-6. Create a new Pull Request
-
-Also consider running any code through the code style checker `jscs` (or even better use it in your editor) with preset set to `yandex`,
-but the parameter `validateIndentation` should be changed to a value `2` instead of original one `4`
 
 ### Building
 The files in the `dist/` folder, plus dependencies, are all you need to use Emoji Picker. But if
